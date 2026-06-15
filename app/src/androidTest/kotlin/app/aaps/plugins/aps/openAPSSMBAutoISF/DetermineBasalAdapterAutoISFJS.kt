@@ -243,8 +243,8 @@ class DetermineBasalAdapterAutoISFJS(private val scriptReader: ScriptReader, pri
         this.profile.put("enableSMB_with_COB", smbEnabled && preferences.get(BooleanKey.ApsUseSmbWithCob))
         this.profile.put("enableSMB_with_temptarget", smbEnabled && preferences.get(BooleanKey.ApsUseSmbWithLowTt))
         this.profile.put("allowSMB_with_high_temptarget", smbEnabled && preferences.get(BooleanKey.ApsUseSmbWithHighTt))
-        this.profile.put("enableSMB_always", smbEnabled && preferences.get(BooleanKey.ApsUseSmbAlways) && advancedFiltering)
-        this.profile.put("enableSMB_after_carbs", smbEnabled && preferences.get(BooleanKey.ApsUseSmbAfterCarbs) && advancedFiltering)
+        this.profile.put("enableSMB_always", smbEnabled && preferences.get(BooleanKey.ApsUseSmbAlways) )
+        this.profile.put("enableSMB_after_carbs", smbEnabled && preferences.get(BooleanKey.ApsUseSmbAfterCarbs) )
         this.profile.put("maxSMBBasalMinutes", preferences.get(IntKey.ApsMaxMinutesOfBasalToLimitSmb))
         this.profile.put("maxUAMSMBBasalMinutes", preferences.get(IntKey.ApsUamMaxMinutesOfBasalToLimitSmb))
         //set the min SMB amount to be the amount set by the pump.
