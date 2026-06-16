@@ -17,14 +17,13 @@ class XdripSourcePluginTest : TestBaseWithProfile() {
         xdripSourcePlugin = XdripSourcePlugin(rh, aapsLogger)
     }
 
-
-    @Test fun advancedFilteringSupported() {
-        assertThat(xdripSourcePlugin.advancedFilteringSupported()).isFalse()
+    @Test
+    fun advancedFilteringSupported() {
+        assertThat(xdripSourcePlugin.advancedFilteringSupported()).isTrue()
     }
 
     @Test
     fun detectDexcomSourceTest() {
-        assertThat(xdripSourcePlugin.advancedFiltering).isFalse()
         xdripSourcePlugin.detectSource(
             GV(
                 timestamp = 10000L,
@@ -35,12 +34,12 @@ class XdripSourcePluginTest : TestBaseWithProfile() {
                 sourceSensor = SourceSensor.DEXCOM_G6_NATIVE_XDRIP
             )
         )
+
         assertThat(xdripSourcePlugin.advancedFiltering).isTrue()
     }
 
     @Test
     fun detectLibreSourceTest() {
-        assertThat(xdripSourcePlugin.advancedFiltering).isFalse()
         xdripSourcePlugin.detectSource(
             GV(
                 timestamp = 10000L,
@@ -51,6 +50,7 @@ class XdripSourcePluginTest : TestBaseWithProfile() {
                 sourceSensor = SourceSensor.LIBRE_3
             )
         )
+
         assertThat(xdripSourcePlugin.advancedFiltering).isTrue()
     }
 }

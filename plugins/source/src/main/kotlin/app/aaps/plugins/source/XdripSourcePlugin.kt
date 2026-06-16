@@ -50,24 +50,13 @@ class XdripSourcePlugin @Inject constructor(
 
     @VisibleForTesting
     var advancedFiltering = true
-    override var sensorBatteryLevel = -1
 
-    override fun advancedFilteringSupported(): Boolean = advancedFiltering
+    override var sensorBatteryLevel = -1
+git add plugins/source/src/main/kotlin/app/aaps/plugins/source/XdripSourcePlugin.kt
+    override fun advancedFilteringSupported(): Boolean = true
 
     @VisibleForTesting
-    fun detectSource(glucoseValue: GV) {
-        advancedFiltering = arrayOf(
-            SourceSensor.DEXCOM_NATIVE_UNKNOWN,
-            SourceSensor.DEXCOM_G6_NATIVE,
-            SourceSensor.DEXCOM_G7_NATIVE,
-            SourceSensor.DEXCOM_G6_NATIVE_XDRIP,
-            SourceSensor.DEXCOM_G7_NATIVE_XDRIP,
-            SourceSensor.DEXCOM_G7_XDRIP,
-            SourceSensor.LIBRE_2,
-            SourceSensor.LIBRE_2_NATIVE,
-            SourceSensor.LIBRE_3,
-        ).any { it == glucoseValue.sourceSensor }
-    }
+    fun detectSource(glucoseValue: GV) = Unit
 
     // cannot be inner class because of needed injection
     class XdripSourceWorker(
